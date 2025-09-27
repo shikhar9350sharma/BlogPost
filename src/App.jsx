@@ -41,7 +41,7 @@ import CreateBlog from './components/CreateBlog';
 import Dashboard from './components/Dashboard';
 import PostList from './components/PostList';
 import EditBlog from './components/EditBlog';
-import './app.css';
+import './App.css';
 
 function App() {
   return (

@@ -11,7 +11,7 @@ const CreateBlog = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5001/api/blog/create', {
+      const response = await fetch('https://blog-post-backend-1h11.onrender.com/api/blog/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -37,54 +37,6 @@ const CreateBlog = () => {
   };
 
   return (
-    // <div className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
-    //   <h2 className="text-2xl font-bold mb-6 text-gray-800">📝 Create a New Blog</h2>
-
-    //   <form onSubmit={handleSubmit} className="space-y-6">
-    //     <div>
-    //       <label className="block text-sm font-medium text-gray-700">Title</label>
-    //       <input
-    //         type="text"
-    //         value={title}
-    //         onChange={(e) => setTitle(e.target.value)}
-    //         required
-    //         className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-    //         placeholder="Enter blog title"
-    //       />
-    //     </div>
-
-    //     <div>
-    //       <label className="block text-sm font-medium text-gray-700">Content</label>
-    //       <textarea
-    //         value={content}
-    //         onChange={(e) => setContent(e.target.value)}
-    //         required
-    //         rows="6"
-    //         className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
-    //         placeholder="Write your blog content here..."
-    //       />
-    //     </div>
-
-    //     <div className="flex items-center">
-    //       <input
-    //         type="checkbox"
-    //         checked={isPublished}
-    //         onChange={(e) => setIsPublished(e.target.checked)}
-    //         className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-    //       />
-    //       <label className="ml-2 block text-sm text-gray-700">Publish Now</label>
-    //     </div>
-
-    //     <button
-    //       type="submit"
-    //       className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200"
-    //     >
-    //       🚀 Create Blog
-    //     </button>
-    //   </form>
-
-    //   <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} />
-    // </div>
     <div className="max-w-2xl mx-auto mt-10 p-6 bg-[#1f1f1f] text-white shadow-lg rounded-lg border border-gray-700">
       <h2 className="text-2xl font-bold mb-6 text-white">📝 Create a New Blog</h2>
 

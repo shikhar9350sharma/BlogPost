@@ -12,7 +12,7 @@ const Layout = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch('http://localhost:5001/api/auth/check', {
+        const res = await fetch('https://blog-post-backend-1h11.onrender.com/api/auth/check', {
           method: 'GET',
           credentials: 'include'
         });
@@ -29,7 +29,7 @@ const Layout = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/auth/logout', {
+      const res = await fetch('https://blog-post-backend-1h11.onrender.com/api/auth/logout', {
         method: 'POST',
         credentials: 'include'
       });

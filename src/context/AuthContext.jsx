@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/auth/check', {
+      const res = await fetch('https://blog-post-backend-1h11.onrender.com/api/auth/check', {
         method: 'GET',
         credentials: 'include'
       });

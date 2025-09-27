@@ -9,7 +9,7 @@ const PostList = () => {
 
   const fetchPosts = async () => {
     try {
-      const res = await fetch('http://localhost:5001/api/blog/user', {
+      const res = await fetch('https://blog-post-backend-1h11.onrender.com/api/blog/user', {
         method: 'GET',
         credentials: 'include'
       });
@@ -28,7 +28,7 @@ const PostList = () => {
     if (!window.confirm('Are you sure you want to delete this post?')) return;
 
     try {
-      const res = await fetch(`http://localhost:5001/api/blog/${id}`, {
+      const res = await fetch(`https://blog-post-backend-1h11.onrender.com/api/blog/${id}`, {
         method: 'DELETE',
         credentials: 'include'
       });
@@ -53,36 +53,7 @@ const PostList = () => {
   }, []);
 
   return (
-    // <div className="max-w-3xl mx-auto mt-10 p-6 bg-white shadow rounded">
-    //   <h2 className="text-2xl font-bold mb-4">🗂️ Your Blog Posts</h2>
-    //   <ToastContainer />
-    //   {posts.length === 0 ? (
-    //     <p className="text-gray-600">You haven't written any blogs yet.</p>
-    //   ) : (
-    //     <ul className="space-y-4">
-    //       {posts.map(post => (
-    //         <li key={post._id} className="border p-4 rounded shadow-sm">
-    //           <h3 className="text-lg font-semibold">{post.title}</h3>
-    //           <p className="text-sm text-gray-500">{new Date(post.createdAt).toLocaleString()}</p>
-    //           <div className="mt-2 flex gap-4">
-    //             <button
-    //               onClick={() => handleEdit(post._id)}
-    //               className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
-    //             >
-    //               ✏️ Edit
-    //             </button>
-    //             <button
-    //               onClick={() => handleDelete(post._id)}
-    //               className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
-    //             >
-    //               🗑️ Delete
-    //             </button>
-    //           </div>
-    //         </li>
-    //       ))}
-    //     </ul>
-    //   )}
-    // </div>
+    
     <div className="max-w-3xl mx-auto mt-10 p-6 bg-[#1f1f1f] text-white shadow-lg rounded border border-gray-700">
       <h2 className="text-2xl font-bold mb-4 text-white">🗂️ Your Blog Posts</h2>
       <ToastContainer />

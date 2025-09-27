@@ -13,7 +13,7 @@ const EditBlog = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await fetch('http://localhost:5001/api/blog/user', {
+        const res = await fetch('https://blog-post-backend-1h11.onrender.com/api/blog/user', {
           method: 'GET',
           credentials: 'include'
         });
@@ -36,7 +36,7 @@ const EditBlog = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5001/api/blog/${id}`, {
+      const res = await fetch(`https://blog-post-backend-1h11.onrender.com/api/blog/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -55,40 +55,7 @@ const EditBlog = () => {
   };
 
   return (
-    // <div className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow rounded">
-    //   <h2 className="text-xl font-bold mb-4">Edit Blog</h2>
-    //   <form onSubmit={handleUpdate} className="space-y-4">
-    //     <input
-    //       type="text"
-    //       value={title}
-    //       onChange={(e) => setTitle(e.target.value)}
-    //       required
-    //       className="w-full border px-4 py-2 rounded"
-    //       placeholder="Blog Title"
-    //     />
-    //     <textarea
-    //       value={content}
-    //       onChange={(e) => setContent(e.target.value)}
-    //       rows="6"
-    //       required
-    //       className="w-full border px-4 py-2 rounded"
-    //       placeholder="Blog Content"
-    //     />
-    //     <label className="flex items-center">
-    //       <input
-    //         type="checkbox"
-    //         checked={isPublished}
-    //         onChange={(e) => setIsPublished(e.target.checked)}
-    //         className="mr-2"
-    //       />
-    //       Publish Now
-    //     </label>
-    //     <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
-    //       Update Blog
-    //     </button>
-    //   </form>
-    //   <ToastContainer />
-    // </div>
+    
     <div className="max-w-2xl mx-auto mt-10 p-6 bg-[#1f1f1f] text-white shadow-lg rounded border border-gray-700">
       <h2 className="text-xl font-bold mb-4 text-white">Edit Blog</h2>
       <form onSubmit={handleUpdate} className="space-y-4">

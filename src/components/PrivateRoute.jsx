@@ -1,11 +1,31 @@
-import React, { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+import { createContext, useEffect, useState } from 'react';
 
-const PrivateRoute = ({ children }) => {
-  const { user } = useContext(AuthContext);
+export const AuthContext = createContext();
 
-  return user ? children : <Navigate to="/login" replace />;
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const res = await fetch('https://blog-post-backend-1h11.onrender.com/api/auth/check', {
+          credentials: 'include'
+        });
+        const data = await res.json();
+        if (res.ok) {
+          setUser(data.user); // or whatever your backend returns
+        }
+      } catch {
+        setUser(null);
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ user, setUser }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
-
-export default PrivateRoute;

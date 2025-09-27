@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import { AuthContext } from '../context/AuthContext'; // 👈 import context
 import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
@@ -9,11 +10,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
-
-  const togglePass = (e) => {
-    e.preventDefault();
-    setShowPass(!showPass);
-  };
+  const { fetchUser } = useContext(AuthContext); // 👈 get fetchUser
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -28,9 +25,8 @@ const Signup = () => {
       const data = await res.json();
       if (res.ok) {
         toast.success('✅ Signup successful');
-        setTimeout(() => {
-          navigate('/dashboard');
-        }, 1000);
+        await fetchUser(); 
+        navigate('/dashboard');
       } else {
         toast.error(data.message || 'Signup failed');
       }

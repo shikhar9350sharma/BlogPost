@@ -25,7 +25,7 @@ const Signup = () => {
       const data = await res.json();
       if (res.ok) {
         toast.success('✅ Signup successful');
-        await fetchUser(); 
+        await fetchUser();
         navigate('/dashboard');
       } else {
         toast.error(data.message || 'Signup failed');
@@ -34,6 +34,11 @@ const Signup = () => {
       toast.error('Server error');
     }
   };
+  const togglePass = (e) => {
+    e.preventDefault();
+    setShowPass(!showPass);
+  };
+
 
   return (
     <section className="flex flex-col md:flex-row items-center justify-center h-full md:min-h-screen w-full px-4 py-4 md:px-20 bg-[#2c2c2c]">
